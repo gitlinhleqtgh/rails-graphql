@@ -1,0 +1,46 @@
+{
+    item(id: 1) {
+        id
+        title
+        description
+    }
+    items {
+        id
+        title
+        description
+        artist {
+            id
+            email
+        }
+    }
+    artist(id: 2) {
+        id
+        email
+    }
+}
+
+mutation {
+    artistCreate(input: {artistInput: {email: "lin@gmail.com", firstName: "le", lastName: "lin"}}) {
+        artist {
+            id
+            email
+            firstName
+            lastName
+        }
+    }
+
+    artistUpdate(input: {id: 2, artistInput: {email: "lin+2@gmail.com", firstName: "le", lastName: "lin"}}) {
+        artist {
+            id
+            email
+            firstName
+            lastName
+        }
+    }
+
+    artistDelete(input: {id: 2}) {
+        artist {
+            id
+        }
+    }
+}
