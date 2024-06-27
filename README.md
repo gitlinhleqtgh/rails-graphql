@@ -21,6 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 * Setup:
+```
 - cloned
 - generate master key and update (https://webcrunch.com/posts/the-complete-guide-to-ruby-on-rails-encrypted-credentials)
 - Build and run docker.
@@ -36,5 +37,5 @@ docker-compose up
 - Testing
 -> using postman to access to http://0.0.0.0:3000/graphql
 using graphQL request to send query like queries at app/graphql/postman/queries
-
+```
 * ...
