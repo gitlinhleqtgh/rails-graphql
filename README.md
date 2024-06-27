@@ -38,4 +38,11 @@ docker-compose up
 -> using postman to access to http://0.0.0.0:3000/graphql
 using graphQL request to send query like queries at app/graphql/postman/queries
 ```
+* ENV
+  ```
+  POSTGRES_USER=
+  POSTGRES_PASSWORD=
+  POSTGRES_DB=
+  MASTER_KEY=
+  ```
 * ...
