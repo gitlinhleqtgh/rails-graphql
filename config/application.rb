@@ -18,6 +18,9 @@ module RailsGraphql
     config.api_only = true
     config.debug_exception_response_format = :api
 
+    allowed_request_origins = (ENV["ALLOWED_REQUEST_ORIGINS"]&.split(",") || []).map {|origin| Regexp.new origin}.push(nil)
+    config.action_cable.allowed_request_origins = allowed_request_origins
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
