@@ -8,6 +8,8 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - rails_graphql_network
 
   api:
     platform: linux/x86_64
@@ -22,6 +24,24 @@ services:
       - db
     environment:
       RAILS_MASTER_KEY: ${MASTER_KEY}
+    networks:
+      - rails_graphql_network
+
+  redis:
+    image: redis:alpine
+    container_name: redis-rails-graphql
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - redisdata:/data
+    networks:
+      - rails_graphql_network
 
 volumes:
   pgdata:
+  redisdata:
+
+networks:
+  rails_graphql_network:
+
